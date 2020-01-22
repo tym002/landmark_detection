@@ -594,7 +594,7 @@ def TrainandValidate(gpu):
     model = PointLoc(False, True ,activationtype = 'relu')
     
     #save the model
-    model_checkpoint = ModelCheckpoint('fst_train0903d.hdf5', monitor='val_loss',verbose=1, save_best_only=True,save_weights_only = True)
+    model_checkpoint = ModelCheckpoint('fst_train0122.hdf5', monitor='val_loss',verbose=1, save_best_only=True,save_weights_only = True)
     
     printHeading('Fitting model...')
     #alpha = K.variable(16)
@@ -619,7 +619,7 @@ def TrainandValidate(gpu):
     plt.xlabel('Epoch')
     plt.legend(['Training', 'Validation'], loc = 'upper left')
     plt.show()
-    plt.savefig('TrainingDrop0903d')
+    plt.savefig('TrainingDrop0122')
     
     plt.plot(mtrain.history['acc'])
     plt.plot(mtrain.history['val_acc'])
@@ -628,7 +628,7 @@ def TrainandValidate(gpu):
     plt.xlabel('Epoch')
     plt.legend(['Training', 'Validation'], loc = 'upper left')
     plt.show()
-    plt.savefig('AccuracyDrop0602c')
+    plt.savefig('AccuracyDrop0122')
     
     plot_model(mtrain, to_file='model.png')
 if __name__ == '__main__':
