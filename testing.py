@@ -55,7 +55,7 @@ ly = 56
 lz = 56
 
 def load_train_data():
-    imgs_train = np.load('/home/tm478/segmentation/x_train448_63.npy')
+    imgs_train = np.load('/home/tm478/bif/Save0814/Test_Mask_Coordinates448_ori_p.npy')
     return imgs_train
 
 def Broadlayer(x):
@@ -501,8 +501,8 @@ def Model_Predict_Evaluate(gpu):
     print('---Predicting and Evaluating model...---')
 
     model_predict = model.predict(test_data, verbose =1 ,batch_size =1)
-    np.savetxt('/.../Prediction0114.py', model_predict, delimiter = ',' )
-    
+    #np.savetxt('/.../Prediction0114.py', model_predict, delimiter = ',' )
+    np.save('/.../Prediction0122.npy', model_predict)
     #model_evaluate= model.evaluate(test_data, test_mask, verbose =1, batch_size =1, )
     #np.savetxt('/home/tm478/bif/Evaluation0803c.py', model_evaluate, delimiter = ',' )
 
