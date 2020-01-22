@@ -55,7 +55,7 @@ ly = 56
 lz = 56
 
 def load_train_data():
-    imgs_train = np.load('/home/tm478/bif/Save0814/Test_Mask_Coordinates448_ori_p.npy')
+    imgs_train = np.load('/home/tm478/bif/Save0814/Test_Images448_ori_p.npy')
     return imgs_train
 
 def Broadlayer(x):
