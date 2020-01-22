@@ -501,7 +501,7 @@ def Model_Predict_Evaluate(gpu):
     print('---Predicting and Evaluating model...---')
 
     model_predict = model.predict(test_data, verbose =1 ,batch_size =1)
-    np.savetxt('/home/tm478/bif/Prediction0114.py', model_predict, delimiter = ',' )
+    np.savetxt('/.../Prediction0114.py', model_predict, delimiter = ',' )
     
     #model_evaluate= model.evaluate(test_data, test_mask, verbose =1, batch_size =1, )
     #np.savetxt('/home/tm478/bif/Evaluation0803c.py', model_evaluate, delimiter = ',' )
