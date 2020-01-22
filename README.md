@@ -10,8 +10,13 @@ testing.py contains the test script
 
 To run the testing with pre-train model, run 
 'python testing.py'
+
 Note: change the location of the saved prediction at line 504. replace '...' with your destination
 
 To train your own model, run 
 'python model.py'
+
 remember to change the saved file destination 
+
+To evaluate the result, run 
+'python evaluate.py'. Remember to download the 'test_ground_truth.npy' file and change the destination 
