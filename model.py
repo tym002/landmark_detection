@@ -97,59 +97,48 @@ def Resize1(x,p):
     print("after resizing: ",x1.shape)
     return x1
 
-def COM(x,nx,ny,nz):
+def COM(feature,nx,ny,nz):
     '''
     COM computes the center of mass of the input image 
     
     Arguments: 
-        x: input image tensor with format [batch,x,y,z,channel]
+        feature: input image tensor with format [batch,x,y,z,channel]
         nx,ny,nz: dimensions of the input image
     '''
-    HMap = x
-    List = [] 
-    i =0
-    loop_max = HMap.shape[-1]
+    map1 = feature
+    x = K.sum(map1, axis =(2,3))
+
     r1 = tf.range(0,nx, dtype = 'float32')
-    r1 = K.reshape(r1, (1,nx))
+    r1 = K.reshape(r1, (1,nx,1))
+    
+    x_product = x*r1
+    x_weight_sum = K.sum(x_product,axis = 1,keepdims=True)+0.00001
+    x_sum = K.sum(x,axis = 1,keepdims=True)+0.00001
+    cm_x = tf.divide(x_weight_sum,x_sum)
+    
+    y = K.sum(map1, axis =(1,3))
+
     r2 = tf.range(0,ny, dtype = 'float32')
-    r2 = K.reshape(r2, (1,ny))
+    r2 = K.reshape(r2, (1,ny,1))
+    
+    y_product = y*r2
+    y_weight_sum = K.sum(y_product,axis = 1,keepdims=True)+0.00001
+    y_sum = K.sum(y,axis = 1,keepdims=True)+0.00001
+    cm_y = tf.divide(y_weight_sum,y_sum)
+    
+    z = K.sum(map1, axis =(1,2))
+
     r3 = tf.range(0,nz, dtype = 'float32')
-    r3 = K.reshape(r3, (1,nz))
-    print("Loop: ", loop_max)
+    r3 = K.reshape(r3, (1,nz,1))
+    
+    z_product = z*r3
+    z_weight_sum = K.sum(z_product,axis = 1,keepdims=True)+0.00001
+    z_sum = K.sum(z,axis = 1,keepdims=True)+0.00001
+    cm_z = tf.divide(z_weight_sum,z_sum)
 
-    while (i < loop_max):
-        map1 = HMap[0,:,:,:,i]
-        x = K.sum(map1[:,:,:], axis =(1,2))
-        x = K.reshape(x,(nx,1))
-        y = K.sum(map1[:,:,:], axis =(0,2))
-        y = K.reshape(y,(ny,1))
-        z = K.sum(map1[:,:,:], axis =(0,1))
-        z = K.reshape(z,(nz,1))
-          
-        A = tf.matmul(r1,x)
-        A_new = K.sum(A)
-        x_new = K.sum(x)+0.00001
-        CM_x = tf.divide(A_new,x_new)
-        List.append(CM_x)
-          
-        B = tf.matmul(r2,y)
-        B_new = K.sum(B)
-        y_new = K.sum(y)+0.00001
-        CM_y = tf.divide(B_new, y_new)
-        List.append(CM_y)
+    center_mass = tf.concat([cm_x,cm_y,cm_z],axis=1)
 
-
-        C = tf.matmul(r3,z)
-        C_new = K.sum(C)
-        z_new = K.sum(z)+0.00001
-        CM_z = tf.divide(C_new, z_new)
-        List.append(CM_z)
-          
-        i += 1
-        
-    List1 = K.stack(List)  
-    List1 = K.reshape(List1,(1,3*loop_max))
-    return List1
+    return center_mass
 
 def Padlayer(x,nx,ny,nz):
     '''
