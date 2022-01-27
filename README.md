@@ -2,6 +2,8 @@
 
 This project contains all the code for the ISBI paper "Volumetric landmark detection with a multi-scale translation equivariant neural network". 
 
+![alt text](https://github.com/tym002/bifurcation_detection/blob/master/overview.png)
+
 model.py contains the proposed multi-scale Loc-net method. 
 
 LocalizerNet.py contains the regressing Gaussian heatmap and single-scale Loc-net methods 
