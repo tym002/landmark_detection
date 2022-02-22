@@ -9,8 +9,11 @@ There is no ground-truth mask needed.
 ![alt text](https://github.com/tym002/bifurcation_detection/blob/master/overview.png)
 
 requirements: 
+
 tensorflow-gpu 1.15.0
+
 python 3.6.13
+
 
 model.py contains the proposed multi-scale Loc-net method. 
 
