@@ -1,6 +1,6 @@
 # Volumetric landmark detection with a multi-scale translation equivariant neural network
 
-This project contains all the code for the ISBI paper "Volumetric landmark detection with a multi-scale translation equivariant neural network". 
+This project contains all the code for the ISBI paper *Volumetric landmark detection with a multi-scale translation equivariant neural network*. 
 
 The architecture is useful for landmark detection, especially with large input image size. 
 Every operations including the cropping is differentiable. Thus, the network can be trained end-to-end with the output being the landmark coordinates. 
