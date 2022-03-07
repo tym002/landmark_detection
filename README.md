@@ -10,13 +10,13 @@ There is no ground-truth mask needed.
 
 <img src="https://github.com/tym002/bifurcation_detection/blob/master/overview.png" width="600">
 
-requirements: 
+## requirements: 
 
 `tensorflow-gpu 1.15.0`
 
 `python 3.6.13`
 
-
+## Code:
 `model.py` contains the proposed multi-scale Loc-net method. 
 
 `LocalizerNet.py` contains the regressing Gaussian heatmap and single-scale Loc-net methods 
