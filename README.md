@@ -37,6 +37,8 @@ To evaluate the result, run
 `python evaluate.py`
 Remember to download the `test_ground_truth.npy` file and change the destination 
 
+## Citation:
+
 If you find our code useful, please cite our work:
 ```
 @inproceedings{ma2020volumetric,
