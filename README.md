@@ -7,8 +7,8 @@ The architecture is useful for landmark detection, especially with large input i
 Every operations including the cropping is differentiable. Thus, the network can be trained end-to-end with the output being the landmark coordinates. 
 There is no ground-truth mask needed.  
 
-![alt text](https://github.com/tym002/bifurcation_detection/blob/master/overview.png)
 
+<img src="https://github.com/tym002/bifurcation_detection/blob/master/overview.png" width="600">
 
 requirements: 
 
