@@ -8,13 +8,13 @@ There is no ground-truth mask needed.
 
 ![alt text](https://github.com/tym002/bifurcation_detection/blob/master/overview.png)
 
-'''
+
 requirements: 
 
-tensorflow-gpu 1.15.0
+`tensorflow-gpu 1.15.0`
 
-python 3.6.13
-'''
+`python 3.6.13`
+
 
 `model.py` contains the proposed multi-scale Loc-net method. 
 
@@ -25,7 +25,7 @@ python 3.6.13
 To run the testing with pre-train model, run 
 `'python testing.py'`
 
-Note: change the location of the saved prediction at line 504. replace '...' with your destination
+Note: change the location of the saved prediction at line 504. replace `...` with your destination
 
 To train your own model, run 
 `python model.py`
@@ -35,3 +35,15 @@ remember to change the saved file destination
 To evaluate the result, run 
 `python evaluate.py`
 Remember to download the `test_ground_truth.npy` file and change the destination 
+
+If you find our code useful, please cite our work:
+```
+@inproceedings{ma2020volumetric,
+  title={Volumetric landmark detection with a multi-scale shift equivariant neural network},
+  author={Ma, Tianyu and Gupta, Ajay and Sabuncu, Mert R},
+  booktitle={2020 IEEE 17th International Symposium on Biomedical Imaging (ISBI)},
+  pages={981--985},
+  year={2020},
+  organization={IEEE}
+}
+```
