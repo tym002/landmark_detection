@@ -39,7 +39,7 @@ Remember to download the `test_ground_truth.npy` file and change the destination
 
 ## Citation:
 
-If you find our code useful, please cite our work:
+If you find our code useful, please cite our work, thank you!
 ```
 @inproceedings{ma2020volumetric,
   title={Volumetric landmark detection with a multi-scale shift equivariant neural network},
