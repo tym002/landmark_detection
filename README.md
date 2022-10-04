@@ -19,23 +19,19 @@ There is no ground-truth mask needed.
 ## Code:
 `model.py` contains the proposed multi-scale Loc-net method. 
 
-`LocalizerNet.py` contains the regressing Gaussian heatmap and single-scale Loc-net methods 
+`LocalizerNet.py` contains the regressing Gaussian heatmap and single-scale Loc-net methods
 
-`testing.py` contains the test script 
+To train or test your own model, run 
+`python model.py --mode train/test`
 
-To run the testing with pre-train model, run 
-`'python testing.py'`
+`-multi_loss` whether to use multi-stage-loss schedule. 
 
-Note: change the location of the saved prediction at line 504. replace `...` with your destination
+`-use_callback` whether to use loss fallback, loss weights of earlier stages will decrease with more epoch during training 
 
-To train your own model, run 
-`python model.py`
-
-remember to change the saved file destination 
+`-random_shift` whether to use random-shift before cropping at each stage
 
 To evaluate the result, run 
 `python evaluate.py`
-Remember to download the `test_ground_truth.npy` file and change the destination 
 
 ## Citation:
 
